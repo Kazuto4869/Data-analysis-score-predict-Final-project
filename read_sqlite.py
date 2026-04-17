@@ -2,8 +2,9 @@ import sqlite3
 import csv
 from pathlib import Path
 
-db_path = "database.sqlite"   # nếu file cùng thư mục với file .py
-export_dir = Path("csv_tables")
+base_dir = Path(__file__).resolve().parent
+db_path = base_dir / "data" / "database.sqlite"
+export_dir = base_dir / "data" / "processed"
 
 conn = sqlite3.connect(db_path)
 cur = conn.cursor()
